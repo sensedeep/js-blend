@@ -53,7 +53,11 @@ export function blend(dest, src, combine = '') {
                     let index = d.indexOf(s)
                     if (index >= 0) d.slice(index, 1)
                 }
-            } else /* if (op == '+') */ {
+            } else if (op == '+') {
+                /*
+                    This was the default, but blending Package.sensors.http.path from PackageOverride needs to 
+                    overwrite and not union.
+                 */
                 if (Array.isArray(s)) {
                     for (let item of s) {
                         if (d.indexOf(s) < 0) d.push(item)
@@ -61,6 +65,8 @@ export function blend(dest, src, combine = '') {
                 } else {
                     d.push(s)
                 }
+            } else {
+                dest[property] = clone(s)
             }
         } else if (d instanceof Date) {
             if (op == '+') {
