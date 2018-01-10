@@ -23,6 +23,7 @@
     "license": "UNLICENSED",
     "main": "index.js",
     "pak": {
-        "export": "*.js"
+        "export": "*.js",
+        "origin": "sensedeep/js-blend"
     }
 }
