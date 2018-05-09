@@ -55,7 +55,7 @@ export function blend(dest, src, combine = '') {
                 }
             } else if (op == '+') {
                 /*
-                    This was the default, but blending Package.sensors.http.path from PackageOverride needs to 
+                    This was the default, but blending Package.sensors.http.path from PackageOverride needs to
                     overwrite and not union.
                  */
                 if (Array.isArray(s)) {
@@ -82,8 +82,12 @@ export function blend(dest, src, combine = '') {
                 dest[property] = clone(s)
             } else if (op == '-') {
                 delete dest[property]
+            } else if (s === null) {
+                dest[property] = s
             } else if (typeof s == 'object') {
                 blend(d, s, op)
+            } else {
+                dest[property] = s
             }
         } else if (typeof d == 'string') {
             if (op == '+') {
