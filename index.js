@@ -4,7 +4,12 @@
 
 import {clone} from 'js-clone'
 
-export function blend(dest, src, combine = '') {
+const RECURSE_LIMIT = 75
+
+export function blend(dest, src, combine = '', recurse = 0) {
+    if (recurse > RECURSE_LIMIT) {
+        return
+    }
     if (!src) {
         return dest
     }
@@ -85,7 +90,7 @@ export function blend(dest, src, combine = '') {
             } else if (s === null) {
                 dest[property] = s
             } else if (typeof s == 'object') {
-                blend(d, s, op)
+                blend(d, s, op, recurse + 1)
             } else {
                 dest[property] = s
             }
