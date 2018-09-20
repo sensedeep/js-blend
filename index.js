@@ -34,16 +34,16 @@ export function blend(dest, src, combine = '', recurse = 0) {
             op = ''
         }
         let s = src[key]
+        let d = dest[property]
         if (!dest.hasOwnProperty(property)) {
             if (op == '-') {
                 continue
             }
             dest[property] = clone(s)
             continue
-        } else if (op == '?') {
+        } else if (op == '?' && d != null) {
             continue
         }
-        let d = dest[property]
         if (Array.isArray(d)) {
             if (op == '=') {
                 /* op == '=' */
