@@ -6,6 +6,10 @@ import {clone} from 'js-clone'
 
 const RECURSE_LIMIT = 75
 
+/*
+    Would be create to have option that did multiple sources
+    blend({}, a, b, c, d)
+*/
 export function blend(dest, src, combine = '', recurse = 0) {
     if (recurse > RECURSE_LIMIT) {
         return
