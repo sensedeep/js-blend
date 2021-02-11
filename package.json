@@ -2,6 +2,7 @@
     "name": "js-blend",
     "description": "Useful node blend objects",
     "version": "1.0.0",
+    "type": "module",
     "keywords": [
         "node",
         "blend"
@@ -22,12 +23,8 @@
     },
     "licenses": [
         {
-            "type": "GPL",
-            "url": "http://www.gnu.org/licenses/gpl-2.0.html"
-        },
-        {
-            "type": "Commercial",
-            "url": "https://www.sensedeep.com/licensing/"
+            "type": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
         }
     ],
     "main": "index.js",
